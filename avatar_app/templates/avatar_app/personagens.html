@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>7 Days: Django!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://7daysofcode.io/assets/img/background-7days.1709759788.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                7 Days: Django!
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Afiliação</th>
+                    <th scope="col">Aliados</th>
+                    <th scope="col">Inimigos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in Chars %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><img src="{{ p.photo_id }}" alt="{{ p.Nome }}" class="img-fluid rounded-circle" style="width: 50px; height: 50px;"></td>
+                    <td>{{ p.Nome }}</td>
+                    <td>{{ p.afiliacao }}</td>
+                    <td>{{ p.aliados }}</td>
+                    <td>{{ p.inimigos }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between">
+            <!-- Botão de Página Anterior -->
+            {% if page_num > 1 %}
+                <a href="{% url 'chars1' page_num=page_num|add:-1 %}" class="btn btn-primary">Página Anterior</a>
+            {% else %}
+                <button class="btn btn-primary" disabled>Página Anterior</button>
+            {% endif %}
+            <span>Página {{ page_num }} de 50</span>
+            <!-- Botão de Próxima Página -->
+            {% if not is_last_page %}
+                <a href="{% url 'chars1' page_num=page_num|add:1 %}" class="btn btn-primary">Próxima Página</a>
+            {% else %}
+                <button class="btn btn-primary" disabled>Próxima Página</button>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
