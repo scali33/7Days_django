@@ -25,6 +25,7 @@
                     <th scope="col">Afiliação</th>
                     <th scope="col">Aliados</th>
                     <th scope="col">Inimigos</th>
+                    <th scope="col"> Saber mais</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,7 @@
                     <td>{{ p.afiliacao }}</td>
                     <td>{{ p.aliados }}</td>
                     <td>{{ p.inimigos }}</td>
+                    <td><a href="{%url 'one_char' id=p.id%}">Mais...</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

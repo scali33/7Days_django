@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Personagem</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Personagem Detalhes
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <img src="{{ Char.photoUrl }}" alt="{{ Char.name }}" class="img-fluid rounded-circle border"
+                        style="width: 150px; height: 150px;">
+                </div>
+                <h2 class="text-center text-primary">{{ Char.name }}</h2>
+                <table class="table table-striped mt-4">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Gênero</th>
+                            <td>{{ Char.gender }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Profissão</th>
+                            <td>{{ Char.profession }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Arma</th>
+                            <td>{{ Char.weapon }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cabelo</th>
+                            <td>{{ Char.hair }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Rank</th>
+                            <td>{{ Char.position }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Afiliação</th>
+                            <td>{{ Char.affiliation }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Primeira Aparição</th>
+                            <td>{{ Char.first }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Inimigos</th>
+                            <td>{{ Char.enemies }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Aliados</th>
+                            <td>{{ Char.allies }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center mt-4">
+                    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-primary">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
